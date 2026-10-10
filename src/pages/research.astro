@@ -1,0 +1,81 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import ResearchIcon from '../components/ResearchIcon.astro';
+import PubItem from '../components/PubItem.astro';
+import { url } from '../utils';
+
+const research = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+const pubs = (await getCollection('publications'))
+  .filter((p) => p.data.status !== 'revise & resubmit')
+  .sort((a, b) => b.data.year - a.data.year || Number(b.data.status === 'in press') - Number(a.data.status === 'in press'));
+const items = await Promise.all(
+  research.map(async (r) => {
+    const related = pubs.filter((p) => p.data.themes.includes(r.id));
+    return { r, Content: (await render(r)).Content, recent: related.slice(0, 4), total: related.length };
+  })
+);
+---
+<Base title="Research" description="Research themes of T-Pop Research Lab.">
+  <PageHero
+    eyebrow="Research"
+    title="Four connected themes"
+    lede="Using population-based and longitudinal data from Taiwan, the United States, and East Asia, we study how social life gets under the skin — and why its effects are unequal."
+  />
+
+  <nav class="container toc" aria-label="Research themes">
+    {research.map((r, i) => <a href={`#${r.id}`}><span>{String(i + 1).padStart(2, '0')}</span>{r.data.title}</a>)}
+  </nav>
+
+  <section class="section">
+    <div class="container">
+      {items.map(({ r, Content, recent, total }, i) => (
+        <article id={r.id} class="theme">
+          <div class="side">
+            <span class="num">{String(i + 1).padStart(2, '0')}</span>
+            <ResearchIcon name={r.data.icon} />
+          </div>
+          <div class="body">
+            <h2>{r.data.title}</h2>
+            <p class="lede">{r.data.summary}</p>
+            <div class="prose"><Content /></div>
+            {recent.length > 0 && (
+              <div class="recent">
+                <h3>Recent publications</h3>
+                {recent.map((p) => <PubItem pub={p} />)}
+                <a class="link-arrow" href={url(`/publications?theme=${r.id}`)}>All {total} publications on this theme</a>
+              </div>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .toc { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; margin-top: 2.5rem; }
+  .toc a { background: var(--surface); padding: 1rem 1.25rem; text-decoration: none; color: var(--ink); font-weight: 500; font-size: 0.95rem; line-height: 1.35; transition: background 0.15s; }
+  .toc a:hover { background: var(--accent-soft); }
+  .toc span { display: block; font-family: var(--font-serif); color: var(--accent); font-size: 0.9rem; margin-bottom: 0.2rem; }
+  .theme { display: grid; grid-template-columns: 9rem 1fr; gap: 2rem; padding-block: 3.5rem; border-bottom: 1px solid var(--line); scroll-margin-top: 5rem; }
+  .theme:first-child { padding-top: 0; }
+  .theme:last-child { border-bottom: 0; }
+  .side { display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
+  .num { font-family: var(--font-serif); font-size: 3rem; line-height: 1; color: var(--line); font-weight: 300; }
+  .body { max-width: 50rem; }
+  .lede { margin-bottom: 1.5rem; }
+  .prose :global(h3) { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-top: 0; }
+  .prose :global(ul) { list-style: none; padding: 0; }
+  .prose :global(li) { padding: 0.75rem 1rem; background: var(--bg-soft); border-radius: 10px; margin-bottom: 0.5rem; font-size: 0.97rem; color: var(--ink-soft); }
+  .prose :global(li strong) { color: var(--ink); display: block; font-weight: 600; }
+  .recent { margin-top: 2.5rem; }
+  .recent h3 { font-family: var(--font-sans); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 0; }
+  .recent .link-arrow { display: inline-block; margin-top: 1.25rem; }
+  @media (max-width: 860px) { .toc { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 700px) {
+    .theme { grid-template-columns: 1fr; gap: 1rem; }
+    .side { flex-direction: row; align-items: center; }
+  }
+</style>

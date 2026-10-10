@@ -1,0 +1,26 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+import { formatDate } from '../utils';
+
+interface Props { item: CollectionEntry<'news'> }
+const { item } = Astro.props;
+const { Content } = await render(item);
+---
+<article class="news">
+  <time datetime={item.data.date.toISOString()}>{formatDate(item.data.date, item.data.precision)}</time>
+  <div>
+    <span class="tag">{item.data.tag}</span>
+    <h3>{item.data.title}</h3>
+    <div class="body"><Content /></div>
+  </div>
+</article>
+
+<style>
+  .news { display: grid; grid-template-columns: 8rem 1fr; gap: 1.5rem; padding-block: 1.6rem; border-bottom: 1px solid var(--line); }
+  time { color: var(--ink-faint); font-size: 0.9rem; font-variant-numeric: tabular-nums; padding-top: 0.15rem; }
+  h3 { font-size: 1.2rem; margin: 0.6rem 0 0.35rem; }
+  .body { color: var(--ink-soft); font-size: 0.98rem; }
+  .body :global(p:last-child) { margin-bottom: 0; }
+  @media (max-width: 600px) { .news { grid-template-columns: 1fr; gap: 0.3rem; } }
+</style>

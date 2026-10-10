@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import { LAB } from '../config';
+
+// Edit the openings below. `status` is the small label shown on each card;
+// set `open: false` to grey it out.
+const positions = [
+  {
+    title: 'Graduate Students (MA & PhD)',
+    open: true,
+    status: 'Inquiries welcome',
+    text: 'Prospective students interested in aging, families, health disparities, or quantitative methods are encouraged to apply through the Department of Sociology graduate program at National Chengchi University and to contact the lab beforehand.',
+  },
+  {
+    title: 'Postdoctoral Researchers',
+    open: true,
+    status: 'Inquiries welcome',
+    text: 'We welcome inquiries from researchers with strong quantitative training in sociology, demography, public health, psychology, or related fields. Please send a CV, a short statement of research interests, and a writing sample.',
+  },
+  {
+    title: 'Research Assistants',
+    open: true,
+    status: 'Inquiries welcome',
+    text: 'Undergraduate and graduate students at NCCU who are interested in gaining hands-on experience with survey and longitudinal data analysis are welcome to get in touch.',
+  },
+];
+
+const learn = [
+  { title: 'Population-based & longitudinal data', text: 'Work with large national surveys and panel studies from Taiwan, the United States, and East Asia.' },
+  { title: 'Advanced quantitative methods', text: 'Build skills in longitudinal modeling, survey methodology, and population-based data analysis.' },
+  { title: 'Publishing & co-authorship', text: 'Students contribute to and co-author peer-reviewed research in leading journals.' },
+  { title: 'An international network', text: 'Connect with collaborators across Taiwan, the U.S., and Asia, and present at international conferences.' },
+];
+---
+<Base title="Join Us" description="Opportunities for students and researchers at T-Pop Research Lab.">
+  <PageHero eyebrow="Join us" title="Research with T-Pop" lede="We are always glad to hear from motivated people who want to understand how social life shapes health and well-being." />
+
+  <section class="section">
+    <div class="container">
+      <div class="grid grid-3">
+        {positions.map((p) => (
+          <article class="card pos">
+            <span class:list={['status', { closed: !p.open }]}>{p.status}</span>
+            <h3>{p.title}</h3>
+            <p>{p.text}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--soft">
+    <div class="container values">
+      <div>
+        <p class="eyebrow">Training</p>
+        <h2>What you'll gain</h2>
+      </div>
+      <ul>
+        {learn.map((l) => <li><strong>{l.title}</strong>{l.text}</li>)}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container apply">
+      <h2>How to get in touch</h2>
+      <p class="lede">Email <a href={`mailto:${LAB.email}`}>{LAB.email}</a> with your CV and a few sentences about your research interests. Please include “Prospective student”, “Prospective postdoc”, or “Research assistant” in the subject line.</p>
+      <a class="btn btn--primary" href={`mailto:${LAB.email}?subject=Prospective%20T-Pop%20lab%20member`}>Email the lab</a>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .pos { display: flex; flex-direction: column; }
+  .pos p { color: var(--ink-soft); margin: 0; }
+  .pos h3 { margin-top: 1rem; }
+  .status { align-self: flex-start; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; padding: 0.25rem 0.65rem 0.25rem 1.4rem; border-radius: 999px; background: var(--accent-soft); color: var(--accent); position: relative; }
+  .status::before { content: ''; position: absolute; left: 0.6rem; top: 50%; width: 6px; height: 6px; margin-top: -3px; border-radius: 50%; background: currentColor; }
+  .status.closed { background: var(--bg-soft); color: var(--ink-faint); }
+  .values { display: grid; grid-template-columns: 1fr 1.6fr; gap: 3rem; }
+  .values ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 1.25rem; }
+  .values li { padding-left: 1.5rem; border-left: 2px solid var(--accent); color: var(--ink-soft); }
+  .values strong { color: var(--ink); display: block; font-weight: 600; }
+  .apply { max-width: 46rem; text-align: center; }
+  .apply .lede { margin-inline: auto; margin-bottom: 2rem; }
+  @media (max-width: 760px) { .values { grid-template-columns: 1fr; gap: 1.5rem; } }
+</style>

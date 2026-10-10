@@ -1,0 +1,24 @@
+---
+interface Props { eyebrow: string; title: string; lede?: string }
+const { eyebrow, title, lede } = Astro.props;
+---
+<section class="page-hero">
+  <div class="dots" aria-hidden="true"></div>
+  <div class="container">
+    <p class="eyebrow reveal">{eyebrow}</p>
+    <h1 class="reveal reveal-2">{title}</h1>
+    {lede && <p class="lede reveal reveal-3">{lede}</p>}
+    <slot />
+  </div>
+</section>
+
+<style>
+  .dots {
+    position: absolute; inset: 0 0 0 45%; pointer-events: none;
+    background-image: radial-gradient(var(--line) 1.2px, transparent 1.2px);
+    background-size: 22px 22px;
+    mask-image: radial-gradient(ellipse at 70% 40%, #000 0%, transparent 65%);
+    -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 0%, transparent 65%);
+  }
+  .container { position: relative; }
+</style>

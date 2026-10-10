@@ -1,0 +1,192 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import ResearchIcon from '../components/ResearchIcon.astro';
+import PubItem from '../components/PubItem.astro';
+import PersonCard from '../components/PersonCard.astro';
+import PyramidArt from '../components/PyramidArt.astro';
+import { LAB } from '../config';
+import { url, formatDate } from '../utils';
+
+const research = (await getCollection('research')).sort((a, b) => a.data.order - b.data.order);
+const pubs = (await getCollection('publications'))
+  .filter((p) => p.data.featured)
+  .sort((a, b) => b.data.year - a.data.year || Number(b.data.status === 'in press') - Number(a.data.status === 'in press'))
+  .slice(0, 3);
+const news = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf()).slice(0, 3);
+const team = (await getCollection('people'))
+  .filter((p) => p.data.role !== 'Alumni')
+  .sort((a, b) => a.data.order - b.data.order);
+const allPubs = (await getCollection('publications')).filter((p) => p.data.status !== 'revise & resubmit');
+---
+<Base>
+  <!-- ── Hero ─────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="glow" aria-hidden="true"></div>
+    <div class="container hero-grid">
+      <div>
+        <p class="eyebrow reveal">{LAB.fullName} · {LAB.university}</p>
+        <h1 class="reveal reveal-2">{LAB.headline} <span class="accent">{LAB.headlineAccent}</span></h1>
+        <p class="lede reveal reveal-3">{LAB.description}</p>
+        <div class="actions reveal reveal-3">
+          <a class="btn btn--primary" href={url('/research')}>Explore our research</a>
+          <a class="btn btn--ghost" href={url('/join')}>Join the lab</a>
+        </div>
+      </div>
+
+      <div class="art reveal reveal-2"><PyramidArt /></div>
+    </div>
+
+    <div class="container stats reveal reveal-3">
+      <div><strong>{team.length}</strong><span>Lab members</span></div>
+      <div><strong>{allPubs.length}</strong><span>Peer-reviewed publications</span></div>
+      <div><strong>3</strong><span>Regions studied: Taiwan, U.S., East Asia</span></div>
+    </div>
+  </section>
+
+  <!-- ── Research ─────────────────────────────────────── -->
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">What we study</p>
+          <h2>Research themes</h2>
+        </div>
+        <a class="link-arrow" href={url('/research')}>All research</a>
+      </div>
+      <div class="grid grid-3">
+        {research.map((r) => (
+          <a class="card research-card" href={url(`/research#${r.id}`)}>
+            <ResearchIcon name={r.data.icon} />
+            <h3>{r.data.title}</h3>
+            <p>{r.data.summary}</p>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Publications + News ──────────────────────────── -->
+  <section class="section">
+    <div class="container split">
+      <div>
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Selected work</p>
+            <h2>Featured publications</h2>
+          </div>
+          <a class="link-arrow" href={url('/publications')}>All publications</a>
+        </div>
+        {pubs.map((p) => <PubItem pub={p} />)}
+      </div>
+
+      <aside class="news-panel">
+        <div class="section-head">
+          <h2 class="h3">Latest news</h2>
+          <a class="link-arrow" href={url('/news')}>More</a>
+        </div>
+        <ol>
+          {news.map((n) => (
+            <li>
+              <time>{formatDate(n.data.date, n.data.precision)}</time>
+              <a href={url(`/news#${n.id}`)}>{n.data.title}</a>
+            </li>
+          ))}
+        </ol>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ── Team preview ─────────────────────────────────── -->
+  <section class="section section--soft">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="eyebrow">The people</p>
+          <h2>Meet the team</h2>
+        </div>
+        <a class="link-arrow" href={url('/people')}>Everyone</a>
+      </div>
+      <div class="team">
+        {team.slice(0, 8).map((p) => <PersonCard person={p} compact />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CTA ──────────────────────────────────────────── -->
+  <section class="section">
+    <div class="container">
+      <div class="cta">
+        <div>
+          <h2>Join T-Pop.</h2>
+          <p>We welcome students and researchers who want to use population data and rigorous quantitative methods to understand health and inequality.</p>
+        </div>
+        <a class="btn btn--light" href={url('/join')}>See open positions</a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .hero { position: relative; overflow: hidden; padding-block: clamp(3.5rem, 9vw, 7rem) 3rem; }
+  .glow {
+    position: absolute; width: 60rem; height: 60rem; right: -25rem; top: -30rem; border-radius: 50%;
+    background: radial-gradient(circle, color-mix(in srgb, var(--accent) 16%, transparent), transparent 65%);
+    pointer-events: none;
+  }
+  .hero-grid { display: grid; grid-template-columns: 1.35fr 1fr; gap: 3rem; align-items: center; position: relative; }
+  .hero h1 { font-weight: 400; font-size: clamp(2.2rem, 4.6vw, 3.6rem); }
+  .hero h1 .accent { color: var(--accent); font-style: italic; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(3, 1fr); margin-top: clamp(3rem, 7vw, 5rem);
+    border-top: 1px solid var(--line); position: relative;
+  }
+  .stats div { padding: 1.5rem 0; display: flex; align-items: baseline; gap: 0.75rem; }
+  .stats div + div { padding-left: 1.5rem; border-left: 1px solid var(--line); }
+  .stats strong { font-family: var(--font-serif); font-weight: 400; font-size: 2.5rem; line-height: 1; }
+  .stats span { color: var(--ink-soft); font-size: 0.9rem; }
+
+  .research-card { text-decoration: none; color: inherit; display: flex; flex-direction: column; gap: 0.25rem; }
+  .research-card h3 { margin-top: 1.25rem; }
+  .research-card p { color: var(--ink-soft); font-size: 0.97rem; margin: 0; }
+
+  .split { display: grid; grid-template-columns: 1.8fr 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+  .news-panel { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.75rem; position: sticky; top: 6rem; }
+  .news-panel .section-head { margin-bottom: 1rem; }
+  .h3 { font-size: 1.4rem; }
+  .news-panel ol { list-style: none; padding: 0; margin: 0; }
+  .news-panel li { padding-block: 1rem; border-top: 1px solid var(--line); display: grid; gap: 0.25rem; }
+  .news-panel time { font-size: 0.8rem; color: var(--ink-faint); text-transform: uppercase; letter-spacing: 0.06em; }
+  .news-panel li a { color: var(--ink); text-decoration: none; font-weight: 500; line-height: 1.4; }
+  .news-panel li a:hover { color: var(--accent); }
+
+  .team { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 1.5rem 2rem; }
+
+  .cta {
+    display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+    padding: clamp(2rem, 5vw, 3.5rem); border-radius: calc(var(--radius) * 1.5);
+    background: linear-gradient(135deg, var(--accent) 0%, var(--accent-strong) 100%);
+    color: var(--bg); position: relative; overflow: hidden;
+  }
+  .cta::after {
+    content: ''; position: absolute; right: -6rem; top: -6rem; width: 20rem; height: 20rem; border-radius: 50%;
+    border: 1px solid color-mix(in srgb, var(--bg) 25%, transparent);
+    box-shadow: 0 0 0 3rem color-mix(in srgb, var(--bg) 4%, transparent), 0 0 0 6rem color-mix(in srgb, var(--bg) 3%, transparent);
+  }
+  .cta h2 { margin-bottom: 0.4rem; }
+  .cta p { margin: 0; opacity: 0.85; max-width: 36rem; }
+  .btn--light { background: var(--bg); color: var(--accent-strong); position: relative; z-index: 1; }
+  .btn--light:hover { transform: translateY(-1px); color: var(--accent-strong); }
+
+  @media (max-width: 900px) {
+    .hero-grid, .split { grid-template-columns: 1fr; }
+    .art { max-width: 360px; margin-inline: auto; }
+    .news-panel { position: static; }
+  }
+  @media (max-width: 600px) {
+    .stats { grid-template-columns: 1fr; }
+    .stats div + div { padding-left: 0; border-left: 0; border-top: 1px solid var(--line); }
+  }
+</style>

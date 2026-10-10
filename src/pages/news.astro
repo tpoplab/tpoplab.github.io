@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import NewsItem from '../components/NewsItem.astro';
+
+const news = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+<Base title="News" description="Lab news, awards and announcements.">
+  <PageHero eyebrow="News" title="What's happening" lede="Papers, awards, talks and milestones from the lab." />
+  <section class="section">
+    <div class="container narrow">
+      {news.map((n) => <div id={n.id} class="anchor"><NewsItem item={n} /></div>)}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .narrow { max-width: 860px; }
+  .anchor { scroll-margin-top: 5rem; }
+</style>

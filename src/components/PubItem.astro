@@ -1,0 +1,47 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props { pub: CollectionEntry<'publications'>; showYear?: boolean }
+const { pub, showYear = true } = Astro.props;
+const p = pub.data;
+// Bold lab members: wrap names in **double asterisks** in publications.yaml
+const authors = p.authors.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+const doiUrl = p.doi ? (p.doi.startsWith('http') ? p.doi : `https://doi.org/${p.doi}`) : undefined;
+const scholarUrl = `https://scholar.google.com/scholar?q=${encodeURIComponent(`"${p.title}"`)}`;
+const titleUrl = doiUrl ?? (p.status === 'revise & resubmit' ? undefined : scholarUrl);
+const yearLabel = p.status === 'in press' ? 'In press' : p.status === 'revise & resubmit' ? 'R&R' : String(p.year);
+// Status (in press / R&R) is shown by the year column or the group heading, so only chapters get a tag
+const tag = p.type === 'Book Chapter' ? 'Book chapter' : null;
+---
+<article class:list={['pub', { 'no-year': !showYear }]}>
+  {showYear && <div class="year">{yearLabel}</div>}
+  <div>
+    {tag && <span class="tag">{tag}</span>}
+    <h3>{titleUrl ? <a href={titleUrl} target={doiUrl ? undefined : '_blank'} rel="noopener">{p.title}</a> : p.title}</h3>
+    <p class="authors" set:html={authors} />
+    <p class="venue">{p.venue}</p>
+    {(p.pdf || doiUrl) && (
+      <p class="links">
+        {p.pdf && <a href={p.pdf}>PDF</a>}
+        {doiUrl && <a href={doiUrl}>DOI</a>}
+      </p>
+    )}
+  </div>
+</article>
+
+<style>
+  .pub { display: grid; grid-template-columns: 6rem 1fr; gap: 1.5rem; padding-block: 1.5rem; border-bottom: 1px solid var(--line); }
+  .pub.no-year { grid-template-columns: 1fr; }
+  .year { font-family: var(--font-serif); font-size: 1.3rem; color: var(--ink-faint); line-height: 1.4; }
+  .tag { margin-bottom: 0.5rem; }
+  h3 { font-size: 1.15rem; line-height: 1.35; margin-bottom: 0.4rem; }
+  h3 a { color: var(--ink); text-decoration: none; background: linear-gradient(var(--accent), var(--accent)) 0 100% / 0 1px no-repeat; transition: background-size 0.3s; }
+  h3 a:hover { background-size: 100% 1px; color: var(--ink); }
+  .authors { color: var(--ink-soft); font-size: 0.95rem; margin: 0 0 0.15rem; }
+  .authors :global(strong) { color: var(--ink); font-weight: 600; }
+  .venue { font-style: italic; color: var(--ink-soft); font-size: 0.95rem; margin: 0; }
+  .links { display: flex; gap: 0.5rem; margin: 0.75rem 0 0; }
+  .links a { font-size: 0.8rem; font-weight: 600; text-decoration: none; padding: 0.2rem 0.7rem; border: 1px solid var(--line); border-radius: 999px; }
+  .links a:hover { border-color: var(--accent); }
+  @media (max-width: 600px) { .pub { grid-template-columns: 1fr; gap: 0.3rem; } }
+</style>

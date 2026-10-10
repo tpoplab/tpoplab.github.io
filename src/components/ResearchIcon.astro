@@ -1,0 +1,19 @@
+---
+interface Props { name: 'aging' | 'family' | 'health' | 'equity' }
+const { name } = Astro.props;
+---
+<span class="icon" aria-hidden="true">
+  <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    {name === 'aging' && <><path d="M3 20h18" /><path d="M4 16c3-1 4-6 8-6s5 5 8 6" /><circle cx="12" cy="6" r="1.4" /><path d="M8 20v-2M12 20v-3M16 20v-2" /></>}
+    {name === 'family' && <><circle cx="7.5" cy="6.5" r="2.2" /><circle cx="16.5" cy="6.5" r="2.2" /><circle cx="12" cy="13" r="1.8" /><path d="M3.5 19c0-3 1.8-5.5 4-5.5M20.5 19c0-3-1.8-5.5-4-5.5M8.5 20c0-2.2 1.6-3.8 3.5-3.8s3.5 1.6 3.5 3.8" /></>}
+    {name === 'health' && <><path d="M12 20s-7-4.3-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.7-7 10-7 10z" /><path d="M7.5 12h2.5l1.2-2.2 1.8 4.4 1.2-2.2h2.3" /></>}
+    {name === 'equity' && <><path d="M12 4v16M7 20h10M5 7h14" /><path d="M5 7l-2.5 6a2.5 2.5 0 0 0 5 0L5 7zM19 7l-2.5 6a2.5 2.5 0 0 0 5 0L19 7z" /></>}
+  </svg>
+</span>
+
+<style>
+  .icon {
+    display: inline-grid; place-items: center; width: 3rem; height: 3rem; border-radius: 12px;
+    background: var(--accent-soft); color: var(--accent); flex: none;
+  }
+</style>

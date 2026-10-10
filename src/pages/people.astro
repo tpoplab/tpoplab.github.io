@@ -1,0 +1,74 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import PageHero from '../components/PageHero.astro';
+import PersonCard from '../components/PersonCard.astro';
+import { initials, url } from '../utils';
+
+const people = (await getCollection('people')).sort((a, b) => a.data.order - b.data.order || a.data.name.localeCompare(b.data.name));
+const pi = people.find((p) => p.data.role === 'Principal Investigator');
+const PiBio = pi ? (await render(pi)).Content : null;
+
+// Everyone except the PI and alumni, in the `order` set in each person's file
+const members = people.filter((p) => !['Principal Investigator', 'Alumni'].includes(p.data.role));
+const alumni = people.filter((p) => p.data.role === 'Alumni');
+---
+<Base title="People" description="Meet the members of the lab.">
+  <PageHero eyebrow="People" title="The team behind the work" lede="Meet the researchers, students, and staff of T-Pop Research Lab." />
+
+  {pi && PiBio && (
+    <section class="section">
+      <div class="container pi">
+        <div class="pi-photo">
+          {pi.data.photo ? <img src={url(pi.data.photo)} alt={`Photo of ${pi.data.name}`} /> : <span>{initials(pi.data.name)}</span>}
+        </div>
+        <div>
+          <p class="eyebrow">Principal Investigator</p>
+          <h2>{pi.data.name}</h2>
+          {pi.data.title && <p class="title">{pi.data.title}</p>}
+          <div class="prose"><PiBio /></div>
+          <p class="links">
+            {pi.data.email && <a class="btn btn--ghost" href={`mailto:${pi.data.email}`}>Email</a>}
+            {pi.data.website && <a class="btn btn--ghost" href={pi.data.website}>Personal website</a>}
+          </p>
+        </div>
+      </div>
+    </section>
+  )}
+
+  {members.length > 0 && (
+    <section class="section group section--soft">
+      <div class="container">
+        <h2 class="group-title">Lab Members</h2>
+        <div class="people-grid">{members.map((p) => <PersonCard person={p} />)}</div>
+      </div>
+    </section>
+  )}
+
+  {alumni.length > 0 && (
+    <section class="section">
+      <div class="container">
+        <h2 class="group-title">Alumni</h2>
+        <div class="alumni">{alumni.map((p) => <PersonCard person={p} compact />)}</div>
+      </div>
+    </section>
+  )}
+</Base>
+
+<style>
+  .pi { display: grid; grid-template-columns: minmax(0, 340px) 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: start; }
+  .pi-photo {
+    aspect-ratio: 4 / 5; border-radius: calc(var(--radius) * 1.4); overflow: hidden; border: 1px solid var(--line);
+    background: linear-gradient(145deg, var(--accent-soft), var(--bg-soft)); display: grid; place-items: center;
+    box-shadow: var(--shadow-lg);
+  }
+  .pi-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .pi-photo span { font-family: var(--font-serif); font-size: 5rem; color: var(--accent); }
+  .title { color: var(--ink-soft); margin-top: -0.25rem; }
+  .links { display: flex; gap: 0.6rem; margin-top: 1.5rem; }
+  .group { padding-block: clamp(3rem, 6vw, 4.5rem); }
+  .group-title { font-size: 1.6rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); margin-bottom: 2rem; }
+  .people-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 220px), 1fr)); gap: 2.5rem 2rem; }
+  .alumni { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); gap: 1.25rem 2rem; }
+  @media (max-width: 760px) { .pi { grid-template-columns: 1fr; } .pi-photo { max-width: 300px; } }
+</style>

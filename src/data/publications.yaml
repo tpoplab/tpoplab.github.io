@@ -1,0 +1,374 @@
+# Publications list — the site sorts and groups these automatically.
+# Fields:
+#   id        unique short key (like a BibTeX key)
+#   authors   wrap lab members' names in **double asterisks** to show them in bold
+#   type      Journal Article | Book Chapter
+#   status    published | in press | revise & resubmit
+#   themes    any of: aging, family, health, minority (matches files in src/content/research/)
+#   featured  true = shown on the homepage
+#   doi, pdf  optional links. Add a DOI like: doi: "10.1111/jomf.12345"
+
+- id: chen2026disability
+  title: "Disability and Healthy Time Use Among Asian Americans in Middle and Later Life"
+  authors: "**Chen, J.-H.**"
+  venue: "Journal of Social Issues"
+  year: 2026
+  status: in press
+  themes: [aging, minority]
+
+- id: chen2026finding
+  title: "Finding the Upsides to Living Alone: Time Use and Unequal Adaptation among Older Americans"
+  authors: "**Chen, J.-H.**, Oh, H., & Schafer, M. H."
+  venue: "Journals of Gerontology, Series B: Psychological Sciences and Social Sciences"
+  year: 2026
+  status: in press
+  themes: [aging, family]
+  featured: true
+
+- id: chen2026evolving
+  title: "Evolving Landscapes, Shifting Narratives: Understanding Taiwanese News Media Portrayals of Homosexuality from 2010 to 2021"
+  authors: "**Chen, J.-H.** & Lu, H.-C."
+  venue: "Journal of Homosexuality"
+  year: 2026
+  themes: [minority]
+
+- id: chen2026parental
+  title: "Parental Academic Comparisons and Adolescent Well-Being: A Longitudinal Study from Taiwan"
+  authors: "Chen, W.-L., & **Chen, J.-H.**"
+  venue: "Family Relations"
+  year: 2026
+  themes: [family]
+
+- id: chen2026unequal
+  title: "Unequal Aging: Investigating Trends in Functional Limitations and Depression among Taiwanese and Mainlander Older Adults in Taiwan"
+  authors: "**Chen, J.-H.**, & Liu, F."
+  venue: "Journal of Aging and Health"
+  year: 2026
+  themes: [aging, minority]
+
+- id: chen2026marriage
+  title: "Marriage Mandates: Understanding Parental Pressures to Marry among Taiwanese Young Adults"
+  authors: "**Chen, J.-H.**, & Huang, K.-J."
+  venue: "Journal of Marriage and Family"
+  year: 2026
+  themes: [family]
+  featured: true
+
+- id: shiu2026from
+  title: "From Discrimination to Unmet Healthcare Needs and Care (Dis)Satisfaction among Urban-Dwelling Indigenous Taiwanese Adults: A Path Analysis"
+  authors: "Shiu, C.-S., Chen, W.-L., & **Chen, J.-H.**"
+  venue: "Journal of Racial and Ethnic Health Disparities"
+  year: 2026
+  themes: [minority]
+  featured: true
+
+- id: chen2025cumulative
+  title: "Cumulative (Dis)Advantages in Cognitive Health: Rural/Urban Residency, Household Registration Status, and Cognitive Aging in Older Chinese"
+  authors: "**Chen, J.-H.**, Song, Q., & Zhang, Y. S."
+  venue: "Journals of Gerontology, Series B: Psychological Sciences and Social Sciences"
+  year: 2025
+  themes: [aging, health]
+
+- id: chen2025school
+  title: "School Closure, Relational Life, and Adolescent Psychosomatic Complaints: PISA 2022 Evidence"
+  authors: "Chen, W.-L., & **Chen, J.-H.**"
+  venue: "Journal of Adolescent Health"
+  year: 2025
+  themes: [family, health]
+
+- id: chen2025experiences
+  title: "Experiences of Forgone Care during the COVID-19 Pandemic and Older Adults’ Mental Health: Variations by Race and Ethnicity"
+  authors: "**Chen, J.-H.**, & Wen, M."
+  venue: "Journal of Racial and Ethnic Health Disparities"
+  year: 2025
+  themes: [aging, minority]
+
+- id: wen2025contribution
+  title: "Contribution of Social and Lifestyle Factors to Cognitive Status and 5-Year Change among Middle-Aged and Older Americans"
+  authors: "Wen, M., Zheng, H., **Chen, J.-H.**, Zhang, W., Li, Y., & Su, D."
+  venue: "Humanities & Social Sciences Communications"
+  year: 2025
+  themes: [aging, health]
+
+- id: chen2024the
+  title: "The Night Divide: Gender-Specific Trajectories of Sleep Disturbances among Multiple Cohorts of Aging Populations"
+  authors: "**Chen, J.-H.**"
+  venue: "Journals of Gerontology, Series B: Psychological Sciences and Social Sciences, gbae160"
+  year: 2024
+  themes: [aging, health]
+
+- id: chen2024urban
+  title: "Urban Marginalization Experiences and Social Etiology of Indigenous Migrants’ Sleep Disturbance"
+  authors: "**Chen, J.-H.**"
+  venue: "Cultural Diversity & Ethnic Minority Psychology"
+  year: 2024
+  themes: [minority, health]
+
+- id: chen2024a
+  title: "A Scoping Review of Determinants of Indigenous Health and Health Disparities in Taiwan: Present Evidence and Paradigms"
+  authors: "**Chen, J.-H.**, Chen, W.-L., & Shiu, C.-S."
+  venue: "Journal of Population Research, 41(2), 1–24"
+  year: 2024
+  themes: [minority]
+
+- id: chen2024marital
+  title: "Marital Status, State Policy Environment, and Foregone Healthcare of Same-Sex Families during the COVID-19 Period"
+  authors: "**Chen, J.-H.**"
+  venue: "Social Science Research, 118, 1–13"
+  year: 2024
+  themes: [minority, family]
+
+- id: chen2024pandemic
+  title: "Pandemic and Older Adults’ Social Structure of Shared Time"
+  authors: "**Chen, J.-H.**"
+  venue: "Journals of Gerontology, Series B: Psychological Sciences and Social Sciences, 79(2), 1732–1739"
+  year: 2024
+  themes: [aging, family]
+
+- id: huang2024filial
+  title: "Filial Piety and the Development of Independence and Interdependence during Emerging Adulthood: A Longitudinal Study of Taiwanese Adolescents"
+  authors: "Huang, K.-J., & **Chen, J.-H.**"
+  venue: "Journal of Youth and Adolescence, 53(5), 1232–1243"
+  year: 2024
+  themes: [family]
+
+- id: chen2023racial
+  title: "Racial and Ethnic Trajectories of Sleep Disturbances: Variations by Age and Cohort"
+  authors: "**Chen, J.-H.**"
+  venue: "Journals of Gerontology, Series A: Biological Sciences and Medical Sciences, 78(5), 947–955"
+  year: 2023
+  themes: [minority, aging]
+
+- id: chen2022race
+  title: "Race, Ethnicity, and COVID-19 Vaccine Concerns during the Early Phase of the Pandemic"
+  authors: "**Chen, J.-H.**, & Shiu, C.-S."
+  venue: "SSM – Population Health, 18, 101068"
+  year: 2022
+  themes: [minority]
+
+- id: chen2022disparities
+  title: "Disparities in Mental Health and Well-Being between Heterosexual and Sexual Minority Older Adults during the COVID-19 Pandemic"
+  authors: "**Chen, J.-H.**"
+  venue: "Journal of Aging and Health, 34(4–5), 485–504"
+  year: 2022
+  themes: [minority, aging]
+
+- id: chen2021state
+  title: "State Containment Measures, Living Arrangements, and Mental Health of U.S. Older Adults during the COVID-19 Pandemic"
+  authors: "**Chen, J.-H.**"
+  venue: "Aging & Mental Health, 25(7), 1239–1248"
+  year: 2021
+  themes: [aging, health]
+
+- id: chen2021childrens
+  title: "Children’s Time Use in Immigrant and Native Families: National Evidence from Australia"
+  authors: "**Chen, J.-H.**"
+  venue: "Social Science Research, 95, 102531"
+  year: 2021
+  themes: [family, minority]
+
+- id: chen2021daily
+  title: "Daily Social Life of Older Adults and Vulnerabilities during the COVID-19 Pandemic"
+  authors: "**Chen, J.-H.**"
+  venue: "Frontiers in Public Health, 9, 654225"
+  year: 2021
+  themes: [aging, family]
+
+- id: chen2020college
+  title: "College Fields of Study and Substance Use"
+  authors: "Chen, W.-L., & **Chen, J.-H.**"
+  venue: "BMC Public Health, 20, 1631"
+  year: 2020
+  themes: [health]
+
+- id: chen2020neighborhood
+  title: "Neighborhood Stressors and Social Integration, Living Arrangements, and Characteristics and Variabilities of Sleep in Old Age"
+  authors: "**Chen, J.-H.**"
+  venue: "EurAmerica, 50(1), 1–46"
+  year: 2020
+  themes: [health, aging]
+
+- id: chen2019social
+  title: "Social Epidemiology of Sleep: Extant Evidence and Future Directions"
+  authors: "**Chen, J.-H.**"
+  venue: "Current Epidemiology Reports, 6(4), 449–465"
+  year: 2019
+  themes: [health]
+
+- id: chen2019experience
+  title: "Experience of Household Material Hardship and Problem Sleep in Later Life"
+  authors: "**Chen, J.-H.**"
+  venue: "Research on Aging, 41(7), 697–722"
+  year: 2019
+  themes: [health, aging]
+
+- id: chen2019sleep
+  title: "Sleep Deprivation and the Development of Leadership and Need for Cognition during the College Years"
+  authors: "Chen, W.-L., & **Chen, J.-H.**"
+  venue: "Journal of Adolescence, 73, 95–99"
+  year: 2019
+  themes: [health]
+
+- id: chen2019consequences
+  title: "Consequences of Inadequate Sleep during the College Years: Sleep Deprivation, Grade Point Average, and College Graduation"
+  authors: "Chen, W.-L., & **Chen, J.-H.**"
+  venue: "Preventive Medicine, 124, 23–28"
+  year: 2019
+  themes: [health]
+
+- id: chen2019cognitive
+  title: "Cognitive Function, Consent for Participation, and Compliance with Wearable Device Protocols in Older Adults"
+  authors: "**Chen, J.-H.**, & Lauderdale, D. S."
+  venue: "Journals of Gerontology, Series A: Biological Sciences and Medical Sciences, 74(2), 269–273"
+  year: 2019
+  themes: [aging]
+
+- id: chen2018couples
+  title: "Couples’ Sleep and Psychological Distress: A Dyadic Perspective"
+  authors: "**Chen, J.-H.**"
+  venue: "Journals of Gerontology, Series B: Psychological Sciences and Social Sciences, 73(1), 30–39"
+  year: 2018
+  themes: [family, health]
+
+- id: chen2018understanding
+  title: "Understanding the Social Determinants of Older Adults’ Sleep: Integrating Actigraphy into Survey Data Collection and Analysis"
+  authors: "**Chen, J.-H.**"
+  venue: "SAGE Research Methods Cases, 1–9"
+  year: 2018
+  themes: [health, aging]
+
+- id: chen2017complex
+  title: "Complex Childcare Experiences and Sleep Outcomes in Young Children"
+  authors: "**Chen, J.-H.**"
+  venue: "Sleep Health, 3(5), 373–378"
+  year: 2017
+  themes: [family, health]
+
+- id: potochnick2017locallevel
+  title: "Local-Level Immigration Enforcement and Food Insecurity Risk among Hispanic Immigrant Families with Children: National-Level Evidence"
+  authors: "Potochnick, S., **Chen, J.-H.**, & Perreira, K."
+  venue: "Journal of Immigrant and Minority Health, 19(5), 1042–1049"
+  year: 2017
+  themes: [minority, family]
+
+- id: chen2017sexual
+  title: "Sexual Orientation and Sleep in the U.S.: A National Profile"
+  authors: "**Chen, J.-H.**, & Shiu, C.-S."
+  venue: "American Journal of Preventive Medicine, 52(4), 433–442"
+  year: 2017
+  themes: [minority, health]
+
+- id: lauderdale2017sleep
+  title: "Sleep, Marriage, and Social Engagement among Older Adults"
+  authors: "Lauderdale, D. S., & **Chen, J.-H.**"
+  venue: "In S. M. McHale, V. King, & O. Buxton (Eds.), Family Contexts of Sleep and Health across the Life Course (pp. 105–124). Springer"
+  year: 2017
+  type: Book Chapter
+  themes: [family, aging]
+
+- id: lauderdale2016sleep
+  title: "Sleep Duration and Health among Older Adults: Associations Vary by How Sleep Is Measured"
+  authors: "Lauderdale, D. S., **Chen, J.-H.**, Kurina, L. M., Waite, L., & Thisted, R."
+  venue: "Journal of Epidemiology & Community Health, 70(4), 360–366"
+  year: 2016
+  themes: [aging, health]
+
+- id: chen2016social
+  title: "Social Participation and Older Adults’ Sleep"
+  authors: "**Chen, J.-H.**, Waite, L., & Lauderdale, D. S."
+  venue: "Social Science & Medicine, 169, 164–173"
+  year: 2016
+  themes: [aging, family]
+
+- id: kurina2015actigraphic
+  title: "Actigraphic Sleep Characteristics among Older Americans"
+  authors: "Kurina, L. M., Thisted, R. A., **Chen, J.-H.**, McClintock, M. K., Waite, L., & Lauderdale, D. S."
+  venue: "Sleep Health, 1(4), 285–292"
+  year: 2015
+  themes: [aging]
+
+- id: chen2015marriage
+  title: "Marriage, Relationship Quality, and Sleep among U.S. Older Adults"
+  authors: "**Chen, J.-H.**, Waite, L. J., & Lauderdale, D. S."
+  venue: "Journal of Health and Social Behavior, 56(3), 356–377"
+  year: 2015
+  themes: [family, aging]
+
+- id: chen2015insomnia
+  title: "Insomnia Symptoms and Actigraph-Estimated Sleep Characteristics in a Nationally Representative Sample of Older Adults"
+  authors: "**Chen, J.-H.**, Lauderdale, D. S., Kurina, L. M., Schumm, P., Thisted, R. A., McClintock, M., & Waite, L."
+  venue: "Journals of Gerontology, Series A: Biological Sciences and Medical Sciences, 70(2), 185–192"
+  year: 2015
+  themes: [aging]
+
+- id: lauderdale2014assessment
+  title: "Assessment of Sleep in the National Social Life, Health, and Aging Project"
+  authors: "Lauderdale, D. S., Schumm, P., Kurina, L. M., McClintock, M., Thisted, R. A., **Chen, J.-H.**, & Waite, L."
+  venue: "Journals of Gerontology, Series B: Psychological Sciences and Social Sciences, 69(Suppl 2), S125–S133"
+  year: 2014
+  themes: [aging]
+
+- id: chen2014asthma
+  title: "Asthma and Child Behavioral Skills: Does Family Socioeconomic Status Matter?"
+  authors: "**Chen, J.-H.**"
+  venue: "Social Science & Medicine, 115, 38–48"
+  year: 2014
+  themes: [health]
+
+- id: chen2013prematurity
+  title: "Prematurity and School Readiness in a Nationally Representative Sample of Australian Children: Does Typically Occurring Preschool Moderate the Relationship?"
+  authors: "**Chen, J.-H.**, Claessens, A., & Msall, M."
+  venue: "Early Human Development, 90(2), 73–79"
+  year: 2013
+  themes: [health]
+
+- id: kurina2013sleep
+  title: "Sleep Duration and All-Cause Mortality: A Critical Review of Measurement and Associations"
+  authors: "Kurina, L. M., McClintock, M. K., **Chen, J.-H.**, Waite, L., Thisted, R. A., & Lauderdale, D. S."
+  venue: "Annals of Epidemiology, 23(6), 361–370"
+  year: 2013
+  themes: [health]
+
+- id: claessens2013multiple
+  title: "Multiple Child Care Arrangements and Child Well-Being: Early Care Experiences in Australia"
+  authors: "Claessens, A., & **Chen, J.-H.**"
+  venue: "Early Childhood Research Quarterly, 28(1), 49–61"
+  year: 2013
+  themes: [family]
+
+- id: chen2013multiple
+  title: "Multiple Childcare Arrangements and Health Outcomes in Early Childhood"
+  authors: "**Chen, J.-H.**"
+  venue: "Maternal and Child Health Journal, 17(3), 448–455"
+  year: 2013
+  themes: [family, health]
+
+- id: chen2012maternal
+  title: "Maternal Alcohol Use during Pregnancy, Birth Weight, and Early Behavioral Outcomes"
+  authors: "**Chen, J.-H.**"
+  venue: "Alcohol & Alcoholism, 47(6), 649–656"
+  year: 2012
+  themes: [health]
+
+- id: kalil2008mothers
+  title: "Mothers’ Citizenship Status and Food Insecurity among Low-Income Children of Immigrants"
+  authors: "Kalil, A., & **Chen, J.-H.**"
+  venue: "New Directions for Child and Adolescent Development, 121, 43–62"
+  year: 2008
+  themes: [minority, family]
+
+- id: chen2026the
+  title: "The Long Arm of First Love: Parental Awareness and Approval to Children’s First Romance and Adult Mental Health"
+  authors: "**Chen, J.-H.** & Wang, Y.-W."
+  venue: "Advances in Life Course Research"
+  year: 2026
+  status: revise & resubmit
+  themes: [family]
+
+- id: chen2026urban
+  title: "Urban Exile beyond Discrimination: Experiences of Structural Marginalization and Urban Indigenous Peoples’ Mental Well-Being in Taiwan"
+  authors: "**Chen, J.-H.**, Chen, W.-L., & Shiu, C.-S."
+  venue: "American Journal of Community Psychology"
+  year: 2026
+  status: revise & resubmit
+  themes: [minority]

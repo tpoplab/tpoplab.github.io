@@ -1,0 +1,52 @@
+---
+import Logo from './Logo.astro';
+import { LAB, NAV } from '../config';
+import { url } from '../utils';
+
+const socials = [
+  { key: 'scholar', label: 'Google Scholar' },
+  { key: 'orcid', label: 'ORCID' },
+  { key: 'researchgate', label: 'ResearchGate' },
+  { key: 'linkedin', label: 'LinkedIn' },
+].filter((s) => LAB.social[s.key as keyof typeof LAB.social]);
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container grid-f">
+    <div>
+      <a href={url('/')} class="brand"><Logo size={26} /> {LAB.name}</a>
+      <p class="muted">{LAB.fullName}<br />{LAB.institution}</p>
+      <p><a href={`mailto:${LAB.email}`}>{LAB.email}</a></p>
+    </div>
+    <nav aria-label="Footer">
+      <h4>Explore</h4>
+      <ul>{NAV.map((n) => <li><a href={url(n.href)}>{n.label}</a></li>)}</ul>
+    </nav>
+    <div>
+      <h4>Visit</h4>
+      <address class="muted">{LAB.address.map((l) => <>{l}<br /></>)}</address>
+      {socials.length > 0 && (
+        <ul class="socials">
+          {socials.map((s) => <li><a href={LAB.social[s.key as keyof typeof LAB.social]}>{s.label}</a></li>)}
+        </ul>
+      )}
+    </div>
+  </div>
+  <div class="container bottom">
+    <span>© {year} {LAB.name}</span>
+  </div>
+</footer>
+
+<style>
+  .site-footer { border-top: 1px solid var(--line); background: var(--bg-soft); padding-top: 3.5rem; font-size: 0.95rem; }
+  .grid-f { display: grid; grid-template-columns: 2fr 1fr 1.3fr; gap: 2.5rem; }
+  .brand { display: inline-flex; align-items: center; gap: 0.6rem; font-family: var(--font-serif); font-size: 1.25rem; font-weight: 600; color: var(--ink); text-decoration: none; margin-bottom: 0.75rem; }
+  h4 { font-family: var(--font-sans); font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-faint); font-weight: 600; margin-bottom: 1rem; }
+  ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.4rem; }
+  ul a, .muted { color: var(--ink-soft); text-decoration: none; }
+  ul a:hover { color: var(--accent); }
+  address { font-style: normal; }
+  .socials { margin-top: 1rem; display: flex; flex-wrap: wrap; gap: 0.4rem 1rem; }
+  .bottom { border-top: 1px solid var(--line); margin-top: 3rem; padding-block: 1.5rem; color: var(--ink-faint); font-size: 0.85rem; }
+  @media (max-width: 760px) { .grid-f { grid-template-columns: 1fr; gap: 2rem; } }
+</style>
