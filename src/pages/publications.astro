@@ -16,10 +16,9 @@ const groups = [
   ...[...new Set(published.map((p) => p.data.year))].map((y) => ({ label: String(y), items: published.filter((p) => p.data.year === y) })),
   { label: 'Revise & Resubmit', items: underReview },
 ].filter((g) => g.items.length);
-const count = (id: string) => [...inPress, ...published].filter((p) => p.data.themes.includes(id)).length;
 ---
 <Base title="Publications" description="Peer-reviewed publications from T-Pop Research Lab.">
-  <PageHero eyebrow="Publications" title="Selected publications" lede={`${inPress.length + published.length} peer-reviewed articles and chapters. Lab members are shown in bold.`}>
+  <PageHero eyebrow="Publications" title="Selected publications" lede="Peer-reviewed articles and book chapters. Lab members are shown in bold.">
     {LAB.social.scholar && <p><a class="link-arrow" href={LAB.social.scholar}>Google Scholar profile</a></p>}
   </PageHero>
 
@@ -28,7 +27,7 @@ const count = (id: string) => [...inPress, ...published].filter((p) => p.data.th
       <div class="filters" role="group" aria-label="Filter by research theme">
         <button class="chip active" data-filter="all" aria-pressed="true">All</button>
         {themes.map((t) => (
-          <button class="chip" data-filter={t.id} aria-pressed="false">{t.data.short} <span>{count(t.id)}</span></button>
+          <button class="chip" data-filter={t.id} aria-pressed="false">{t.data.short}</button>
         ))}
       </div>
 

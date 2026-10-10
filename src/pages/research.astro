@@ -13,7 +13,7 @@ const pubs = (await getCollection('publications'))
 const items = await Promise.all(
   research.map(async (r) => {
     const related = pubs.filter((p) => p.data.themes.includes(r.id));
-    return { r, Content: (await render(r)).Content, recent: related.slice(0, 4), total: related.length };
+    return { r, Content: (await render(r)).Content, recent: related.slice(0, 4) };
   })
 );
 ---
@@ -30,7 +30,7 @@ const items = await Promise.all(
 
   <section class="section">
     <div class="container">
-      {items.map(({ r, Content, recent, total }, i) => (
+      {items.map(({ r, Content, recent }, i) => (
         <article id={r.id} class="theme">
           <div class="side">
             <span class="num">{String(i + 1).padStart(2, '0')}</span>
@@ -44,7 +44,7 @@ const items = await Promise.all(
               <div class="recent">
                 <h3>Recent publications</h3>
                 {recent.map((p) => <PubItem pub={p} />)}
-                <a class="link-arrow" href={url(`/publications?theme=${r.id}`)}>All {total} publications on this theme</a>
+                <a class="link-arrow" href={url(`/publications?theme=${r.id}`)}>All publications on this theme</a>
               </div>
             )}
           </div>

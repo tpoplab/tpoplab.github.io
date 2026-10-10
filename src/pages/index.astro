@@ -17,7 +17,6 @@ const news = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() 
 const team = (await getCollection('people'))
   .filter((p) => p.data.role !== 'Alumni')
   .sort((a, b) => a.data.order - b.data.order);
-const allPubs = (await getCollection('publications')).filter((p) => p.data.status !== 'revise & resubmit');
 ---
 <Base>
   <!-- ── Hero ─────────────────────────────────────────── -->
@@ -39,7 +38,7 @@ const allPubs = (await getCollection('publications')).filter((p) => p.data.statu
 
     <div class="container stats reveal reveal-3">
       <div><strong>{team.length}</strong><span>Lab members</span></div>
-      <div><strong>{allPubs.length}</strong><span>Peer-reviewed publications</span></div>
+      <div><strong>{research.length}</strong><span>Research themes</span></div>
       <div><strong>3</strong><span>Regions studied: Taiwan, U.S., East Asia</span></div>
     </div>
   </section>
