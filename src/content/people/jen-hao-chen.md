@@ -2,7 +2,7 @@
 name: Jen-Hao Chen
 role: Principal Investigator
 title: Professor & Yushan Young Fellow
-photo: /images/people/jen-hao-chen.jpg
+photo: /images/people/jen-hao-chen-portrait.jpg
 email: jenhao@nccu.edu.tw
 order: 0
 ---
