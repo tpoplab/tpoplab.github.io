@@ -30,25 +30,28 @@ The page reloads automatically as you edit files.
 People `role` must be one of: `Principal Investigator`, `Postdoc`, `PhD Student`, `Master's Student`, `Undergraduate`, `Staff`, `Alumni`.
 Photos look best at a 4:5 portrait ratio, about 800×1000 px.
 
-## Publishing to GitHub Pages
+## Publishing
 
-1. Create a GitHub repository (e.g. `lab-website`) and push this folder to it.
-2. In the repo on GitHub: **Settings → Pages → Build and deployment → Source: GitHub Actions**.
-3. Every push to `main` now rebuilds and publishes the site automatically.
+The site is live at **https://tpoplab.github.io**, built from the GitHub repo
+[tpoplab/tpoplab.github.io](https://github.com/tpoplab/tpoplab.github.io).
+Every push to `main` rebuilds and republishes it automatically (about 1 minute).
 
-Until you have a custom domain, set these in `astro.config.mjs` so links work:
+To publish changes after editing:
 
-```js
-site: 'https://YOUR-USERNAME.github.io',
-base: '/lab-website',
+```bash
+git add -A
+git commit -m "Describe your change"
+git push
 ```
 
-## Using a custom domain (e.g. tpoplab.com)
+(GitHub CLI is installed at `~/.local/bin/gh` and signed in as `tpoplab`.)
 
-1. Buy the domain from a registrar (Cloudflare, Namecheap, Porkbun, Google/Squarespace Domains…), about $10–15/year.
+## Using a custom domain (tpoplab.com)
+
+1. Buy the domain from a registrar (Cloudflare, Namecheap, Porkbun…), about $10–15/year.
 2. At the registrar, add DNS records:
    - Four `A` records for `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - A `CNAME` record for `www` → `YOUR-USERNAME.github.io`
+   - A `CNAME` record for `www` → `tpoplab.github.io`
 3. Create a file `public/CNAME` containing just `tpoplab.com`.
-4. In `astro.config.mjs` set `site: 'https://tpoplab.com'` and `base: '/'`.
-5. On GitHub: **Settings → Pages → Custom domain** → `tpoplab.com`, then tick **Enforce HTTPS** once it becomes available.
+4. In `astro.config.mjs` set `site: 'https://tpoplab.com'`, then commit and push.
+5. On GitHub: repo **Settings → Pages → Custom domain** → `tpoplab.com`, then tick **Enforce HTTPS** once it becomes available.
