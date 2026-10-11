@@ -6,7 +6,8 @@
 #   status    published | in press | revise & resubmit
 #   themes    any of: aging, family, health, minority (matches files in src/content/research/)
 #   featured  true = shown on the homepage
-#   doi, pdf  optional links. Add a DOI like: doi: "10.1111/jomf.12345"
+#   doi       links the title to the article on the journal's website, e.g. doi: "10.1111/jomf.12345"
+#   pdf       optional link to a PDF
 
 - id: chen2026disability
   title: "Disability and Healthy Time Use Among Asian Americans in Middle and Later Life"
@@ -30,6 +31,7 @@
   authors: "**Chen, J.-H.** & Lu, H.-C."
   venue: "Journal of Homosexuality"
   year: 2026
+  doi: "10.1080/00918369.2026.2690193"
   themes: [minority]
 
 - id: chen2026parental
@@ -37,6 +39,7 @@
   authors: "Chen, W.-L., & **Chen, J.-H.**"
   venue: "Family Relations"
   year: 2026
+  doi: "10.1111/fare.70225"
   themes: [family]
 
 - id: chen2026unequal
@@ -51,6 +54,7 @@
   authors: "**Chen, J.-H.**, & Huang, K.-J."
   venue: "Journal of Marriage and Family"
   year: 2026
+  doi: "10.1111/jomf.70067"
   themes: [family]
   featured: true
 
@@ -59,6 +63,7 @@
   authors: "Shiu, C.-S., Chen, W.-L., & **Chen, J.-H.**"
   venue: "Journal of Racial and Ethnic Health Disparities"
   year: 2026
+  doi: "10.1007/s40615-025-02840-9"
   themes: [minority]
   featured: true
 
@@ -67,6 +72,7 @@
   authors: "**Chen, J.-H.**, Song, Q., & Zhang, Y. S."
   venue: "Journals of Gerontology, Series B: Psychological Sciences and Social Sciences"
   year: 2025
+  doi: "10.1093/geronb/gbaf217"
   themes: [aging, health]
 
 - id: chen2025school
@@ -74,6 +80,7 @@
   authors: "Chen, W.-L., & **Chen, J.-H.**"
   venue: "Journal of Adolescent Health"
   year: 2025
+  doi: "10.1016/j.jadohealth.2025.09.016"
   themes: [family, health]
 
 - id: chen2025experiences
@@ -81,6 +88,7 @@
   authors: "**Chen, J.-H.**, & Wen, M."
   venue: "Journal of Racial and Ethnic Health Disparities"
   year: 2025
+  doi: "10.1007/s40615-025-02304-0"
   themes: [aging, minority]
 
 - id: wen2025contribution
@@ -88,6 +96,7 @@
   authors: "Wen, M., Zheng, H., **Chen, J.-H.**, Zhang, W., Li, Y., & Su, D."
   venue: "Humanities & Social Sciences Communications"
   year: 2025
+  doi: "10.1057/s41599-025-04521-8"
   themes: [aging, health]
 
 - id: chen2024the
@@ -95,6 +104,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Journals of Gerontology, Series B: Psychological Sciences and Social Sciences, gbae160"
   year: 2024
+  doi: "10.1093/geronb/gbae160"
   themes: [aging, health]
 
 - id: chen2024urban
@@ -102,6 +112,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Cultural Diversity & Ethnic Minority Psychology"
   year: 2024
+  doi: "10.1037/cdp0000733"
   themes: [minority, health]
 
 - id: chen2024a
@@ -109,6 +120,7 @@
   authors: "**Chen, J.-H.**, Chen, W.-L., & Shiu, C.-S."
   venue: "Journal of Population Research, 41(2), 1–24"
   year: 2024
+  doi: "10.1007/s12546-024-09332-3"
   themes: [minority]
 
 - id: chen2024marital
@@ -116,6 +128,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Social Science Research, 118, 1–13"
   year: 2024
+  doi: "10.1016/j.ssresearch.2023.102958"
   themes: [minority, family]
 
 - id: chen2024pandemic
@@ -123,6 +136,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Journals of Gerontology, Series B: Psychological Sciences and Social Sciences, 79(2), 1732–1739"
   year: 2024
+  doi: "10.1093/geronb/gbad159"
   themes: [aging, family]
 
 - id: huang2024filial
@@ -130,6 +144,7 @@
   authors: "Huang, K.-J., & **Chen, J.-H.**"
   venue: "Journal of Youth and Adolescence, 53(5), 1232–1243"
   year: 2024
+  doi: "10.1007/s10964-023-01929-w"
   themes: [family]
 
 - id: chen2023racial
@@ -137,6 +152,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Journals of Gerontology, Series A: Biological Sciences and Medical Sciences, 78(5), 947–955"
   year: 2023
+  doi: "10.1093/gerona/glad031"
   themes: [minority, aging]
 
 - id: chen2022race
@@ -144,6 +160,7 @@
   authors: "**Chen, J.-H.**, & Shiu, C.-S."
   venue: "SSM – Population Health, 18, 101068"
   year: 2022
+  doi: "10.1016/j.ssmph.2022.101073"
   themes: [minority]
 
 - id: chen2022disparities
@@ -151,6 +168,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Journal of Aging and Health, 34(4–5), 485–504"
   year: 2022
+  doi: "10.1177/08982643221081965"
   themes: [minority, aging]
 
 - id: chen2021state
@@ -158,6 +176,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Aging & Mental Health, 25(7), 1239–1248"
   year: 2021
+  doi: "10.1080/13607863.2021.2021142"
   themes: [aging, health]
 
 - id: chen2021childrens
@@ -165,6 +184,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Social Science Research, 95, 102531"
   year: 2021
+  doi: "10.1016/j.ssresearch.2021.102665"
   themes: [family, minority]
 
 - id: chen2021daily
@@ -172,6 +192,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Frontiers in Public Health, 9, 654225"
   year: 2021
+  doi: "10.3389/fpubh.2021.637008"
   themes: [aging, family]
 
 - id: chen2020college
@@ -179,6 +200,7 @@
   authors: "Chen, W.-L., & **Chen, J.-H.**"
   venue: "BMC Public Health, 20, 1631"
   year: 2020
+  doi: "10.1186/s12889-020-09722-1"
   themes: [health]
 
 - id: chen2020neighborhood
@@ -193,6 +215,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Current Epidemiology Reports, 6(4), 449–465"
   year: 2019
+  doi: "10.1007/s40471-019-00219-z"
   themes: [health]
 
 - id: chen2019experience
@@ -200,6 +223,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Research on Aging, 41(7), 697–722"
   year: 2019
+  doi: "10.1177/0164027519834861"
   themes: [health, aging]
 
 - id: chen2019sleep
@@ -207,6 +231,7 @@
   authors: "Chen, W.-L., & **Chen, J.-H.**"
   venue: "Journal of Adolescence, 73, 95–99"
   year: 2019
+  doi: "10.1016/j.adolescence.2019.04.003"
   themes: [health]
 
 - id: chen2019consequences
@@ -214,6 +239,7 @@
   authors: "Chen, W.-L., & **Chen, J.-H.**"
   venue: "Preventive Medicine, 124, 23–28"
   year: 2019
+  doi: "10.1016/j.ypmed.2019.04.017"
   themes: [health]
 
 - id: chen2019cognitive
@@ -221,6 +247,7 @@
   authors: "**Chen, J.-H.**, & Lauderdale, D. S."
   venue: "Journals of Gerontology, Series A: Biological Sciences and Medical Sciences, 74(2), 269–273"
   year: 2019
+  doi: "10.1093/gerona/gly032"
   themes: [aging]
 
 - id: chen2018couples
@@ -228,6 +255,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Journals of Gerontology, Series B: Psychological Sciences and Social Sciences, 73(1), 30–39"
   year: 2018
+  doi: "10.1093/geronb/gbx001"
   themes: [family, health]
 
 - id: chen2018understanding
@@ -235,6 +263,7 @@
   authors: "**Chen, J.-H.**"
   venue: "SAGE Research Methods Cases, 1–9"
   year: 2018
+  doi: "10.4135/9781526427502"
   themes: [health, aging]
 
 - id: chen2017complex
@@ -242,6 +271,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Sleep Health, 3(5), 373–378"
   year: 2017
+  doi: "10.1016/j.sleh.2017.07.005"
   themes: [family, health]
 
 - id: potochnick2017locallevel
@@ -249,6 +279,7 @@
   authors: "Potochnick, S., **Chen, J.-H.**, & Perreira, K."
   venue: "Journal of Immigrant and Minority Health, 19(5), 1042–1049"
   year: 2017
+  doi: "10.1007/s10903-016-0464-5"
   themes: [minority, family]
 
 - id: chen2017sexual
@@ -256,6 +287,7 @@
   authors: "**Chen, J.-H.**, & Shiu, C.-S."
   venue: "American Journal of Preventive Medicine, 52(4), 433–442"
   year: 2017
+  doi: "10.1016/j.amepre.2016.10.039"
   themes: [minority, health]
 
 - id: lauderdale2017sleep
@@ -263,6 +295,7 @@
   authors: "Lauderdale, D. S., & **Chen, J.-H.**"
   venue: "In S. M. McHale, V. King, & O. Buxton (Eds.), Family Contexts of Sleep and Health across the Life Course (pp. 105–124). Springer"
   year: 2017
+  doi: "10.1007/978-3-319-64780-7_5"
   type: Book Chapter
   themes: [family, aging]
 
@@ -271,6 +304,7 @@
   authors: "Lauderdale, D. S., **Chen, J.-H.**, Kurina, L. M., Waite, L., & Thisted, R."
   venue: "Journal of Epidemiology & Community Health, 70(4), 360–366"
   year: 2016
+  doi: "10.1136/jech-2015-206109"
   themes: [aging, health]
 
 - id: chen2016social
@@ -278,6 +312,7 @@
   authors: "**Chen, J.-H.**, Waite, L., & Lauderdale, D. S."
   venue: "Social Science & Medicine, 169, 164–173"
   year: 2016
+  doi: "10.1016/j.socscimed.2015.11.045"
   themes: [aging, family]
 
 - id: kurina2015actigraphic
@@ -285,6 +320,7 @@
   authors: "Kurina, L. M., Thisted, R. A., **Chen, J.-H.**, McClintock, M. K., Waite, L., & Lauderdale, D. S."
   venue: "Sleep Health, 1(4), 285–292"
   year: 2015
+  doi: "10.1016/j.sleh.2015.09.004"
   themes: [aging]
 
 - id: chen2015marriage
@@ -292,6 +328,7 @@
   authors: "**Chen, J.-H.**, Waite, L. J., & Lauderdale, D. S."
   venue: "Journal of Health and Social Behavior, 56(3), 356–377"
   year: 2015
+  doi: "10.1177/0022146515594631"
   themes: [family, aging]
 
 - id: chen2015insomnia
@@ -299,6 +336,7 @@
   authors: "**Chen, J.-H.**, Lauderdale, D. S., Kurina, L. M., Schumm, P., Thisted, R. A., McClintock, M., & Waite, L."
   venue: "Journals of Gerontology, Series A: Biological Sciences and Medical Sciences, 70(2), 185–192"
   year: 2015
+  doi: "10.1093/gerona/glu144"
   themes: [aging]
 
 - id: lauderdale2014assessment
@@ -306,6 +344,7 @@
   authors: "Lauderdale, D. S., Schumm, P., Kurina, L. M., McClintock, M., Thisted, R. A., **Chen, J.-H.**, & Waite, L."
   venue: "Journals of Gerontology, Series B: Psychological Sciences and Social Sciences, 69(Suppl 2), S125–S133"
   year: 2014
+  doi: "10.1093/geronb/gbu092"
   themes: [aging]
 
 - id: chen2014asthma
@@ -313,6 +352,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Social Science & Medicine, 115, 38–48"
   year: 2014
+  doi: "10.1016/j.socscimed.2014.05.048"
   themes: [health]
 
 - id: chen2013prematurity
@@ -320,6 +360,7 @@
   authors: "**Chen, J.-H.**, Claessens, A., & Msall, M."
   venue: "Early Human Development, 90(2), 73–79"
   year: 2013
+  doi: "10.1016/j.earlhumdev.2013.09.015"
   themes: [health]
 
 - id: kurina2013sleep
@@ -327,6 +368,7 @@
   authors: "Kurina, L. M., McClintock, M. K., **Chen, J.-H.**, Waite, L., Thisted, R. A., & Lauderdale, D. S."
   venue: "Annals of Epidemiology, 23(6), 361–370"
   year: 2013
+  doi: "10.1016/j.annepidem.2013.03.015"
   themes: [health]
 
 - id: claessens2013multiple
@@ -334,6 +376,7 @@
   authors: "Claessens, A., & **Chen, J.-H.**"
   venue: "Early Childhood Research Quarterly, 28(1), 49–61"
   year: 2013
+  doi: "10.1016/j.ecresq.2012.06.003"
   themes: [family]
 
 - id: chen2013multiple
@@ -341,6 +384,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Maternal and Child Health Journal, 17(3), 448–455"
   year: 2013
+  doi: "10.1007/s10995-012-1016-9"
   themes: [family, health]
 
 - id: chen2012maternal
@@ -348,6 +392,7 @@
   authors: "**Chen, J.-H.**"
   venue: "Alcohol & Alcoholism, 47(6), 649–656"
   year: 2012
+  doi: "10.1093/alcalc/ags089"
   themes: [health]
 
 - id: kalil2008mothers
@@ -355,6 +400,7 @@
   authors: "Kalil, A., & **Chen, J.-H.**"
   venue: "New Directions for Child and Adolescent Development, 121, 43–62"
   year: 2008
+  doi: "10.1002/cd.222"
   themes: [minority, family]
 
 - id: chen2026the

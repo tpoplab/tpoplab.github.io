@@ -18,7 +18,11 @@ const groups = [
 ].filter((g) => g.items.length);
 ---
 <Base title="Publications" description="Peer-reviewed publications from T-Pop Research Lab.">
-  <PageHero eyebrow="Publications" title="Selected publications" lede="Peer-reviewed articles and book chapters. Lab members are shown in bold.">
+  <PageHero eyebrow="Publications" title="Selected publications" lede="Peer-reviewed articles and book chapters. Click a title to read the article on the journal’s website. Lab members are shown in bold.">
+    <p class="access">
+      <strong>Can't access an article?</strong> Click “Request a copy” under any paper, or email
+      <a href={`mailto:${LAB.email}?subject=Article%20request`}>{LAB.email}</a> and we'll send you a copy.
+    </p>
     {LAB.social.scholar && <p><a class="link-arrow" href={LAB.social.scholar}>Google Scholar profile</a></p>}
   </PageHero>
 
@@ -73,6 +77,8 @@ const groups = [
 </script>
 
 <style>
+  .access { margin-top: 1.5rem; max-width: 42rem; padding: 0.9rem 1.2rem; border-radius: 12px; background: var(--accent-soft); color: var(--ink-soft); font-size: 0.97rem; }
+  .access strong { color: var(--ink); }
   .filters { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 2.5rem; position: sticky; top: 4.25rem; z-index: 5; padding-block: 0.75rem; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); }
   .chip {
     font: inherit; font-size: 0.9rem; font-weight: 500; cursor: pointer;
