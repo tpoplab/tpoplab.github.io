@@ -6,8 +6,8 @@ import NewsItem from '../components/NewsItem.astro';
 
 const news = (await getCollection('news')).sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 ---
-<Base title="News" description="Lab news, awards and announcements.">
-  <PageHero eyebrow="News" title="What's happening" lede="Papers, awards, talks and milestones from the lab." />
+<Base title="News" description="Talks and awards from T-Pop Research Lab.">
+  <PageHero eyebrow="News" title="What's happening" lede="Talks and awards from the lab." />
   <section class="section">
     <div class="container narrow">
       {news.map((n) => <div id={n.id} class="anchor"><NewsItem item={n} /></div>)}

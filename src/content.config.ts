@@ -24,7 +24,7 @@ const news = defineCollection({
     date: z.coerce.date(),
     // How much of the date to show: 'day' → Oct 10, 2026 · 'month' → Oct 2026 · 'year' → 2026
     precision: z.enum(['day', 'month', 'year']).default('day'),
-    tag: z.enum(['Paper', 'Award', 'Talk', 'People', 'Grant', 'Event']).default('Event'),
+    tag: z.enum(['Talk', 'Award']),
   }),
 });
 
