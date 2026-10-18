@@ -32,9 +32,10 @@ Photos look best at a 4:5 portrait ratio, about 800×1000 px.
 
 ## Publishing
 
-The site is live at **https://tpoplab.github.io**, built from the GitHub repo
+The site is live at **https://tpoplab.org**, built from the GitHub repo
 [tpoplab/tpoplab.github.io](https://github.com/tpoplab/tpoplab.github.io).
 Every push to `main` rebuilds and republishes it automatically (about 1 minute).
+Browsers may keep showing the old version for up to 10 minutes; press ⌘ + Shift + R to refresh.
 
 To publish changes after editing:
 
@@ -46,12 +47,13 @@ git push
 
 (GitHub CLI is installed at `~/.local/bin/gh` and signed in as `tpoplab`.)
 
-## Using a custom domain (tpoplab.com)
+## Custom domain (tpoplab.org)
 
-1. Buy the domain from a registrar (Cloudflare, Namecheap, Porkbun…), about $10–15/year.
-2. At the registrar, add DNS records:
-   - Four `A` records for `@` → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
-   - A `CNAME` record for `www` → `tpoplab.github.io`
-3. Create a file `public/CNAME` containing just `tpoplab.com`.
-4. In `astro.config.mjs` set `site: 'https://tpoplab.com'`, then commit and push.
-5. On GitHub: repo **Settings → Pages → Custom domain** → `tpoplab.com`, then tick **Enforce HTTPS** once it becomes available.
+The domain is registered at Porkbun. Its DNS records point to GitHub Pages:
+
+- Four `A` records for the root → `185.199.108.153`, `185.199.109.153`, `185.199.110.153`, `185.199.111.153`
+- Four `AAAA` records for the root → `2606:50c0:8000::153` … `2606:50c0:8003::153`
+- `CNAME` for `www` → `tpoplab.github.io`
+
+`public/CNAME` contains `tpoplab.org`, and the repo's **Settings → Pages** has the same custom domain with HTTPS enforced.
+Keep the domain's auto-renew turned on at Porkbun so the site doesn't go offline.
