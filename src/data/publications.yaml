@@ -3,7 +3,7 @@
 #   id        unique short key (like a BibTeX key)
 #   authors   wrap lab members' names in **double asterisks** to show them in bold
 #   type      Journal Article | Book Chapter
-#   status    published | in press | revise & resubmit
+#   status    published | in press
 #   themes    any of: aging, family, health, minority (matches files in src/content/research/)
 #   featured  true = shown on the homepage
 #   doi       links the title to the article on the journal's website, e.g. doi: "10.1111/jomf.12345"
@@ -402,19 +402,3 @@
   year: 2008
   doi: "10.1002/cd.222"
   themes: [minority, family]
-
-- id: chen2026the
-  title: "The Long Arm of First Love: Parental Awareness and Approval to Children’s First Romance and Adult Mental Health"
-  authors: "**Chen, J.-H.** & Wang, Y.-W."
-  venue: "Advances in Life Course Research"
-  year: 2026
-  status: revise & resubmit
-  themes: [family]
-
-- id: chen2026urban
-  title: "Urban Exile beyond Discrimination: Experiences of Structural Marginalization and Urban Indigenous Peoples’ Mental Well-Being in Taiwan"
-  authors: "**Chen, J.-H.**, Chen, W.-L., & Shiu, C.-S."
-  venue: "American Journal of Community Psychology"
-  year: 2026
-  status: revise & resubmit
-  themes: [minority]
